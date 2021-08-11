@@ -77,6 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, weak) id<YYTextViewDelegate> delegate;
 
+@property(nullable, nonatomic, strong) NSDictionary *focusAttribute;
 
 #pragma mark - Configuring the Text Attributes
 ///=============================================================================

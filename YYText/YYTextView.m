@@ -1468,9 +1468,7 @@ typedef NS_ENUM(NSUInteger, YYTextMoveDirection) {
     }
     if (notify) [_inputDelegate textWillChange:self];
     NSRange newRange = NSMakeRange(range.asRange.location, text.length);
-    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    style.lineSpacing = 5;
-    [_innerText replaceCharactersInRange:range.asRange withAttributedString:[[NSAttributedString alloc] initWithString:text attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1], NSFontAttributeName: [UIFont systemFontOfSize:14], NSParagraphStyleAttributeName: style}]];
+    [_innerText replaceCharactersInRange:range.asRange withAttributedString:[[NSAttributedString alloc] initWithString:text attributes: self.focusAttribute]];
 //    [_innerText replaceCharactersInRange:range.asRange withString:text];
     [_innerText yy_removeDiscontinuousAttributesInRange:newRange];
     if (notify) [_inputDelegate textDidChange:self];
